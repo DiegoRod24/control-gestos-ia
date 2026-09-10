@@ -13,17 +13,8 @@
 
   <main class="app">
     <header class="topbar">
-      <div class="brand">
-        <div class="brand-orb">⚡</div>
-        <div>
-          <h1>GESTUREMON <span>AI</span></h1>
-          <p>Entrena · Interactúa · Explora</p>
-        </div>
-      </div>
-      <div class="levelbox">
-        <div><b>NIVEL <span id="level">1</span></b><small id="xpText">0 / 100 XP</small></div>
-        <div class="xp"><i id="xpBar"></i></div>
-      </div>
+      <div class="brand"><div class="brand-orb">⚡</div><div><h1>GESTUREMON <span>AI</span></h1><p>Entrena · Interactúa · Explora</p></div></div>
+      <div class="levelbox"><div><b>NIVEL <span id="level">1</span></b><small id="xpText">0 / 100 XP</small></div><div class="xp"><i id="xpBar"></i></div></div>
       <div class="system-pill"><i id="statusDot"></i><span id="statusText">Cámara detenida</span></div>
     </header>
 
@@ -31,9 +22,7 @@
       <article class="panel camera-panel">
         <div class="panel-title"><span>🔴 CÁMARA EN VIVO</span><b id="trackingState">ESPERANDO</b></div>
         <div class="stage">
-          <video id="video" autoplay muted playsinline></video>
-          <canvas id="overlay"></canvas>
-          <div class="scan"></div><div class="corners"></div>
+          <video id="video" autoplay muted playsinline></video><canvas id="overlay"></canvas><div class="scan"></div><div class="corners"></div>
           <div id="emptyState" class="empty"><div><div class="big-hand">🖐️</div><h2>Tu cámara es el sensor</h2><p>Inicia la cámara y muestra una mano.</p></div></div>
           <div class="gesture-now"><small>GESTO ACTUAL</small><strong id="gestureLabel">—</strong><span id="gestureAction">Esperando gesto</span></div>
           <div class="camera-hud"><span id="handsPill">MANOS: 0</span><span id="fpsPill">FPS: 0</span><span id="confidencePill">CONFIANZA: 0%</span></div>
@@ -42,71 +31,43 @@
 
       <aside class="right-col">
         <article class="panel mascot-panel">
-          <div class="mascot-wrap">
-            <div id="mascot" class="mascot idle"><div class="ears">⚡ ⚡</div><div class="face">◉ᴗ◉</div><div class="core">AI</div></div>
-            <div id="speech" class="speech">¡Hola! Soy <b>Sparku</b>. Inicia la cámara y entrenamos juntos.</div>
-          </div>
+          <div class="mascot-wrap"><div id="mascot" class="mascot idle"><div class="ears">⚡ ⚡</div><div class="face">◉ᴗ◉</div><div class="core">AI</div></div><div id="speech" class="speech">¡Hola! Soy <b>Sparku</b>. Inicia la cámara y entrenamos juntos.</div></div>
           <div class="mascot-name"><b>Sparku</b><span>Tu asistente de gestos</span></div>
           <div class="energy"><span>ENERGÍA</span><div><i id="energyBar"></i></div><b id="energyText">0%</b></div>
         </article>
-
-        <article class="panel mission-panel">
-          <div class="panel-title"><span>🎯 MISIÓN ACTUAL</span><b id="missionIndex">1/4</b></div>
-          <h3 id="missionTitle">Activa la cámara</h3>
-          <p id="missionDesc">Comienza el entrenamiento mostrando tu mano.</p>
-          <div class="mission-progress"><i id="missionBar"></i></div>
-          <div class="reward">⚡ Recompensa: <b>+20 XP</b></div>
-        </article>
+        <article class="panel mission-panel"><div class="panel-title"><span>🎯 MISIÓN ACTUAL</span><b id="missionIndex">1/4</b></div><h3 id="missionTitle">Activa la cámara</h3><p id="missionDesc">Comienza el entrenamiento mostrando tu mano.</p><div class="mission-progress"><i id="missionBar"></i></div><div class="reward">⚡ Recompensa: <b>+20 XP</b></div></article>
       </aside>
     </section>
 
     <section class="stats-grid">
-      <article class="panel current-gesture">
-        <div class="panel-title"><span>GESTO ACTUAL</span></div>
-        <div class="gesture-display"><div id="gestureEmoji">🖐️</div><div><h2 id="gestureName">ESPERANDO</h2><p id="gestureDesc">Muestra una mano</p></div></div>
-      </article>
+      <article class="panel current-gesture"><div class="panel-title"><span>GESTO ACTUAL</span></div><div class="gesture-display"><div id="gestureEmoji">🖐️</div><div><h2 id="gestureName">ESPERANDO</h2><p id="gestureDesc">Muestra una mano</p></div></div></article>
+      <article class="panel telemetry"><div class="panel-title"><span>ESTADO DEL SISTEMA</span></div><div class="metrics"><div><b id="handsMetric">0</b><span>Manos</span></div><div><b id="confidenceMetric">0%</b><span>Confianza</span></div><div><b id="fpsMetric">0</b><span>FPS</span></div><div><b id="comboMetric">x0</b><span>Combo</span></div></div></article>
+      <article class="panel log-panel"><div class="panel-title"><span>REGISTRO EN TIEMPO REAL</span><button id="clearLog">Limpiar</button></div><div id="log" class="log"><div>Sistema listo.</div></div></article>
+    </section>
 
-      <article class="panel telemetry">
-        <div class="panel-title"><span>ESTADO DEL SISTEMA</span></div>
-        <div class="metrics">
-          <div><b id="handsMetric">0</b><span>Manos</span></div>
-          <div><b id="confidenceMetric">0%</b><span>Confianza</span></div>
-          <div><b id="fpsMetric">0</b><span>FPS</span></div>
-          <div><b id="comboMetric">x0</b><span>Combo</span></div>
-        </div>
-      </article>
-
-      <article class="panel log-panel">
-        <div class="panel-title"><span>REGISTRO EN TIEMPO REAL</span><button id="clearLog">Limpiar</button></div>
-        <div id="log" class="log"><div>Sistema listo.</div></div>
-      </article>
+    <section id="interactionLab" class="panel interaction-lab">
+      <div class="panel-title"><span>🧪 LABORATORIO INTERACTIVO</span><small id="labStatus">Activa Modo demo</small></div>
+      <div class="lab-help">🤏 Pinza = agarrar · 👋 swipe = cambiar escena · 👐 dos manos = zoom · ✊ puño = cerrar selección</div>
+      <div id="playground" class="playground">
+        <div class="scene-dots"><i class="active"></i><i></i><i></i></div>
+        <article class="float-card card-a" data-card="galeria"><span>🖼️</span><b>Galería</b><small>Agárrame con pinza</small></article>
+        <article class="float-card card-b" data-card="mapa"><span>🗺️</span><b>Mapa</b><small>Muéveme con tu mano</small></article>
+        <article class="float-card card-c" data-card="musica"><span>🎵</span><b>Música</b><small>Haz zoom con dos manos</small></article>
+        <div id="zoomTarget" class="zoom-target"><div class="orb-core">⚡</div><strong>OBJETO 3D</strong><small id="zoomValue">100%</small></div>
+        <div id="actionToast" class="action-toast">Modo demo listo</div>
+      </div>
     </section>
 
     <section class="panel gesture-strip">
       <div class="panel-title"><span>GESTOS DISPONIBLES</span><small>Hazlos frente a la cámara</small></div>
       <div class="gesture-cards">
-        <button data-gesture="point">☝️<b>Señalar</b><small>Mueve el cursor</small></button>
-        <button data-gesture="pinch">🤏<b>Pinza</b><small>Clic / Selección</small></button>
-        <button data-gesture="open">✋<b>Mano abierta</b><small>Confirmar / Pausa</small></button>
-        <button data-gesture="fist">✊<b>Puño</b><small>Cancelar / Cerrar</small></button>
-        <button data-gesture="victory">✌️<b>Victoria</b><small>Cambiar modo</small></button>
+        <button data-gesture="point">☝️<b>Señalar</b><small>Mueve el cursor</small></button><button data-gesture="pinch">🤏<b>Pinza</b><small>Clic / Arrastrar</small></button><button data-gesture="open">✋<b>Mano abierta</b><small>Confirmar / Pausa</small></button><button data-gesture="fist">✊<b>Puño</b><small>Cancelar / Cerrar</small></button><button data-gesture="victory">✌️<b>Victoria</b><small>Cambiar modo</small></button>
       </div>
     </section>
 
-    <footer class="toolbar panel">
-      <button id="startBtn" class="btn green">▶ Iniciar cámara</button>
-      <button id="controlBtn" class="btn cyan" disabled>◎ Activar control</button>
-      <button id="trainingBtn" class="btn purple">🎮 Modo entrenamiento</button>
-      <button id="demoBtn" class="btn orange">✨ Modo demo</button>
-      <button id="stopBtn" class="btn red" disabled>■ Detener</button>
-      <button id="soundBtn" class="icon-btn">🔊</button>
-      <button id="fullscreenBtn" class="icon-btn">⛶</button>
-    </footer>
+    <footer class="toolbar panel"><button id="startBtn" class="btn green">▶ Iniciar cámara</button><button id="controlBtn" class="btn cyan" disabled>◎ Activar control</button><button id="trainingBtn" class="btn purple">🎮 Modo entrenamiento</button><button id="demoBtn" class="btn orange">✨ Modo demo</button><button id="stopBtn" class="btn red" disabled>■ Detener</button><button id="soundBtn" class="icon-btn">🔊</button><button id="fullscreenBtn" class="icon-btn">⛶</button></footer>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script><script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script><script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script><script src="app.js"></script>
 </body>
 </html>
