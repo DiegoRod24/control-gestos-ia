@@ -46,22 +46,23 @@
     </section>
 
     <section id="interactionLab" class="panel interaction-lab">
-      <div class="panel-title"><span>🧪 LABORATORIO INTERACTIVO</span><small id="labStatus">Activa Modo demo</small></div>
-      <div class="lab-help">🤏 Pinza = agarrar · 👋 swipe = cambiar escena · 👐 dos manos = zoom · ✊ puño = cerrar selección</div>
+      <div class="panel-title"><span>🧪 LABORATORIO INTERACTIVO</span><div class="lab-actions"><small id="labStatus">Activa Modo demo</small><button id="resetLabBtn" type="button">↻ Reiniciar</button></div></div>
+      <div class="lab-help"><b>PRUÉBALO:</b> mueve la mano = puntero · 🤏 junta pulgar+índice = agarrar · 👋 mano abierta + movimiento = swipe · 👐 2 manos = zoom · ✊ puño = cerrar</div>
       <div id="playground" class="playground">
+        <div id="labPointer" class="lab-pointer"><span></span></div>
         <div class="scene-dots"><i class="active"></i><i></i><i></i></div>
-        <article class="float-card card-a" data-card="galeria"><span>🖼️</span><b>Galería</b><small>Agárrame con pinza</small></article>
-        <article class="float-card card-b" data-card="mapa"><span>🗺️</span><b>Mapa</b><small>Muéveme con tu mano</small></article>
-        <article class="float-card card-c" data-card="musica"><span>🎵</span><b>Música</b><small>Haz zoom con dos manos</small></article>
+        <article class="float-card card-a" data-card="Galería"><span>🖼️</span><b>Galería</b><small>Acerca la mano y haz pinza</small></article>
+        <article class="float-card card-b" data-card="Mapa"><span>🗺️</span><b>Mapa</b><small>Pinza + mueve tu mano</small></article>
+        <article class="float-card card-c" data-card="Música"><span>🎵</span><b>Música</b><small>También puedes arrastrarme</small></article>
         <div id="zoomTarget" class="zoom-target"><div class="orb-core">⚡</div><strong>OBJETO 3D</strong><small id="zoomValue">100%</small></div>
-        <div id="actionToast" class="action-toast">Modo demo listo</div>
+        <div id="actionToast" class="action-toast">Activa el modo demo</div>
       </div>
     </section>
 
     <section class="panel gesture-strip">
       <div class="panel-title"><span>GESTOS DISPONIBLES</span><small>Hazlos frente a la cámara</small></div>
       <div class="gesture-cards">
-        <button data-gesture="point">☝️<b>Señalar</b><small>Mueve el cursor</small></button><button data-gesture="pinch">🤏<b>Pinza</b><small>Clic / Arrastrar</small></button><button data-gesture="open">✋<b>Mano abierta</b><small>Confirmar / Pausa</small></button><button data-gesture="fist">✊<b>Puño</b><small>Cancelar / Cerrar</small></button><button data-gesture="victory">✌️<b>Victoria</b><small>Cambiar modo</small></button>
+        <button data-gesture="point">☝️<b>Señalar</b><small>Mueve el cursor</small></button><button data-gesture="pinch">🤏<b>Pinza</b><small>Clic / Arrastrar</small></button><button data-gesture="open">✋<b>Mano abierta</b><small>Swipe</small></button><button data-gesture="fist">✊<b>Puño</b><small>Cancelar / Cerrar</small></button><button data-gesture="victory">✌️<b>Victoria</b><small>Cambiar modo</small></button>
       </div>
     </section>
 
