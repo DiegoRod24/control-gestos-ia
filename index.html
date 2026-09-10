@@ -21,11 +21,21 @@
     <section class="hero-grid">
       <article class="panel camera-panel">
         <div class="panel-title"><span>🔴 CÁMARA EN VIVO</span><b id="trackingState">ESPERANDO</b></div>
-        <div class="stage">
-          <video id="video" autoplay muted playsinline></video><canvas id="overlay"></canvas><div class="scan"></div><div class="corners"></div>
+        <div class="stage" id="stage">
+          <video id="video" autoplay muted playsinline></video>
+          <canvas id="overlay"></canvas>
+          <div class="scan"></div><div class="corners"></div>
+          <div id="handFx" class="hand-fx">
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+            <div class="palm-core"><span>AI</span></div>
+            <div class="holo-card holo-1"><small>SISTEMA</small><b id="holoGesture">TRACKING</b><i></i></div>
+            <div class="holo-card holo-2"><small>ENERGÍA</small><b id="holoEnergy">0%</b><i></i></div>
+            <div class="holo-card holo-3"><small>ACCIÓN</small><b id="holoAction">LISTO</b><i></i></div>
+            <div id="fxBurst" class="fx-burst"></div>
+          </div>
           <div id="emptyState" class="empty"><div><div class="big-hand">🖐️</div><h2>Tu cámara es el sensor</h2><p>Inicia la cámara y muestra una mano.</p></div></div>
           <div class="gesture-now"><small>GESTO ACTUAL</small><strong id="gestureLabel">—</strong><span id="gestureAction">Esperando gesto</span></div>
-          <div class="camera-hud"><span id="handsPill">MANOS: 0</span><span id="fpsPill">FPS: 0</span><span id="confidencePill">CONFIANZA: 0%</span></div>
+          <div class="camera-hud"><span id="handsPill">MANOS: 0</span><span id="fpsPill">FPS: 0</span><span id="confidencePill">CONFIANZA: 0%</span><span id="fxModePill">FX: ARMADO</span></div>
         </div>
       </article>
 
@@ -47,8 +57,9 @@
 
     <section id="interactionLab" class="panel interaction-lab">
       <div class="panel-title"><span>🧪 LABORATORIO INTERACTIVO</span><div class="lab-actions"><small id="labStatus">Activa Modo demo</small><button id="resetLabBtn" type="button">↻ Reiniciar</button></div></div>
-      <div class="lab-help"><b>PRUÉBALO:</b> mueve la mano = puntero · 🤏 junta pulgar+índice = agarrar · 👋 mano abierta + movimiento = swipe · 👐 2 manos = zoom · ✊ puño = cerrar</div>
-      <div id="playground" class="playground">
+      <div class="lab-help"><b>PRUÉBALO:</b> mueve la mano = puntero · 🤏 pinza = agarrar · 👋 swipe = cambiar escena · 👐 2 manos = zoom · ✊ puño = cerrar · ✌️ victoria = turbo</div>
+      <div id="playground" class="playground" data-scene="0">
+        <div class="ambient-ring ring-one"></div><div class="ambient-ring ring-two"></div>
         <div id="labPointer" class="lab-pointer"><span></span></div>
         <div class="scene-dots"><i class="active"></i><i></i><i></i></div>
         <article class="float-card card-a" data-card="Galería"><span>🖼️</span><b>Galería</b><small>Acerca la mano y haz pinza</small></article>
@@ -62,13 +73,16 @@
     <section class="panel gesture-strip">
       <div class="panel-title"><span>GESTOS DISPONIBLES</span><small>Hazlos frente a la cámara</small></div>
       <div class="gesture-cards">
-        <button data-gesture="point">☝️<b>Señalar</b><small>Mueve el cursor</small></button><button data-gesture="pinch">🤏<b>Pinza</b><small>Clic / Arrastrar</small></button><button data-gesture="open">✋<b>Mano abierta</b><small>Swipe</small></button><button data-gesture="fist">✊<b>Puño</b><small>Cancelar / Cerrar</small></button><button data-gesture="victory">✌️<b>Victoria</b><small>Cambiar modo</small></button>
+        <button data-gesture="point">☝️<b>Señalar</b><small>Mueve el cursor</small></button><button data-gesture="pinch">🤏<b>Pinza</b><small>Clic / Arrastrar</small></button><button data-gesture="open">✋<b>Mano abierta</b><small>Swipe</small></button><button data-gesture="fist">✊<b>Puño</b><small>Cancelar / Cerrar</small></button><button data-gesture="victory">✌️<b>Victoria</b><small>Turbo visual</small></button>
       </div>
     </section>
 
     <footer class="toolbar panel"><button id="startBtn" class="btn green">▶ Iniciar cámara</button><button id="controlBtn" class="btn cyan" disabled>◎ Activar control</button><button id="trainingBtn" class="btn purple">🎮 Modo entrenamiento</button><button id="demoBtn" class="btn orange">✨ Modo demo</button><button id="stopBtn" class="btn red" disabled>■ Detener</button><button id="soundBtn" class="icon-btn">🔊</button><button id="fullscreenBtn" class="icon-btn">⛶</button></footer>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script><script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script><script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script><script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
